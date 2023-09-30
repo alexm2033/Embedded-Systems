@@ -36,20 +36,28 @@ int main()
     while (true) {
         //Wait for switch press
         while (SW_BLUE == 0);
+        // tmr1.reset();
+        // tmr1.start();
+        // while(tmr1.elapsed_time() <5ms);
+        wait_us(5000);
+        while (SW_BLUE == 1);
+        // tmr1.reset();
+        // tmr1.start();
+        // while(tmr1.elapsed_time() <5ms);
+        wait_us(5000);
 
-        //Turn on LED
-        ledRed = 1;
+        ledRed = 1^ledRed;
+        //ledRed = !ledRed;
+        // //Turn on LED
+        // ledRed = 1;
 
-        //Wait for 500ms
-        tmr1.reset();
-        while (tmr1.elapsed_time() < 500ms); //How about this for C++ magic :)
+        // //Wait for 500ms
+        // tmr1.reset();
+        // while (tmr1.elapsed_time() < 500ms); //How about this for C++ magic :)
 
-        wait_us(500000);
+        // wait_us(500000);
 
-        //Turn off LED
-        ledRed = 0;
+        // //Turn off LED
+        // ledRed = 0;
     }
 }
-
-
-
