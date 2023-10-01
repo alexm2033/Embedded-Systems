@@ -13,6 +13,7 @@ DigitalOut ledYel(TRAF_YEL1_PIN);
 DigitalOut ledGrn(TRAF_GRN1_PIN);
 
 // Timers (modified version from Timer)
+TimerCompat tmr_debounceB;
 TimerCompat tmr_debounce2;
 TimerCompat tmr_debounce3;
 TimerCompat tmr_flash;
@@ -25,6 +26,7 @@ typedef enum {
   WAITING_2
 } SWITCH_STATE;
 
+SWITCH_STATE sw_stateB = WAIT_FOR_PRESS;
 SWITCH_STATE sw_state2 = WAIT_FOR_PRESS;
 SWITCH_STATE sw_state3 = WAIT_FOR_PRESS;
 
@@ -38,11 +40,15 @@ int main() {
     long long flash_time = tmr_flash.read_ms();
     int sw2 = SW2.read();
     int sw3 = SW3.read();
+    int swB = SWB.read();
     long long sw2_time = tmr_debounce2.read_ms();
     long long sw3_time = tmr_debounce3.read_ms();
+    long long swB_time = tmr_debounceB.read_ms();
+    int flash_interval = 500;
+    printf("\nserial monitor working\n");
 
     // Update yellow LED state and mealy outputs
-    if (flash_time >= 500) {
+    if (flash_time >= flash_interval) {
       ledYel = !ledYel;
       tmr_flash.reset();
     }
@@ -51,7 +57,7 @@ int main() {
     switch (sw_state2) {
 
     case WAIT_FOR_PRESS:
-      if (sw2 == 1) {
+      if (SW2 == 1) {
         sw_state2 = WAITING_1;
         tmr_debounce2.start();
         ledGrn = !ledGrn;
@@ -66,7 +72,7 @@ int main() {
       break;
 
     case WAIT_FOR_REL:
-      if (sw2 == 0) {
+      if (SW2 == 0) {
         sw_state2 = WAITING_2;
         tmr_debounce2.start();
       }
@@ -118,6 +124,48 @@ int main() {
 
     default:
       sw_state3 = WAIT_FOR_PRESS;
+    }
+
+    switch (sw_stateB) {
+    
+    case WAIT_FOR_PRESS:
+        if (swB == 1) {
+            sw_stateB = WAITING_1;
+            tmr_debounceB.start();
+            printf("state 1");
+        }
+        break;
+    
+    case WAITING_1:
+        if(swB_time >= 300) {
+            sw_stateB = WAIT_FOR_REL;
+            tmr_debounceB.stop();
+            tmr_debounceB.reset();
+            printf("state 2");
+        }
+        break;
+
+    case WAIT_FOR_REL:
+        if (swB == 0) {
+            sw_stateB = WAITING_2;
+            tmr_debounceB.start();
+            printf("state 3");
+        }
+        break;
+
+    case WAITING_2:
+        if(swB_time >= 300) {
+            sw_stateB = WAIT_FOR_PRESS;
+            tmr_debounceB.stop();
+            tmr_debounceB.reset();
+            printf("Please enter desired delay time in ms\n");
+            scanf("%d", &flash_interval);
+            printf("You entered correct integer values. The value was %dms\n", flash_interval);
+        }
+        break;
+    
+    default:
+        sw_stateB = WAIT_FOR_PRESS;
     }
   }
 }
