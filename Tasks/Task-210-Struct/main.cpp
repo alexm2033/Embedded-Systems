@@ -21,9 +21,12 @@ int main() {
 
     // TASK:
     // Create another complex number y
+    ComplexNumber_C y;
     // Calculate the complex sum of p and q and store in y
+    y.real = p.real + q.real;
+    y.imag = p.imag + q.imag;
     // Use printf to display as a complex number (hint: you need two placeholders)
-    
+    printf("y = %f + %f\n",y.real, y.imag);
     while (true) {
     }
 }

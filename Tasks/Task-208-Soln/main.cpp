@@ -30,6 +30,8 @@ SWITCH_STATE sw_stateB = WAIT_FOR_PRESS;
 SWITCH_STATE sw_state2 = WAIT_FOR_PRESS;
 SWITCH_STATE sw_state3 = WAIT_FOR_PRESS;
 
+int flash_interval = 500;
+
 int main() {
   // Start flashing timer
   tmr_flash.start();
@@ -44,11 +46,11 @@ int main() {
     long long sw2_time = tmr_debounce2.read_ms();
     long long sw3_time = tmr_debounce3.read_ms();
     long long swB_time = tmr_debounceB.read_ms();
-    int flash_interval = 500;
-    printf("\nserial monitor working\n");
+    
+    //printf("\nserial monitor working\n");
 
     // Update yellow LED state and mealy outputs
-    if (flash_time >= flash_interval) {
+    if (flash_time > flash_interval) {
       ledYel = !ledYel;
       tmr_flash.reset();
     }
@@ -132,7 +134,7 @@ int main() {
         if (swB == 1) {
             sw_stateB = WAITING_1;
             tmr_debounceB.start();
-            printf("state 1");
+            //printf("state 1\n");
         }
         break;
     
@@ -141,7 +143,7 @@ int main() {
             sw_stateB = WAIT_FOR_REL;
             tmr_debounceB.stop();
             tmr_debounceB.reset();
-            printf("state 2");
+            //printf("state 2\n");
         }
         break;
 
@@ -149,7 +151,7 @@ int main() {
         if (swB == 0) {
             sw_stateB = WAITING_2;
             tmr_debounceB.start();
-            printf("state 3");
+           // printf("state 3\n");
         }
         break;
 
@@ -159,7 +161,7 @@ int main() {
             tmr_debounceB.stop();
             tmr_debounceB.reset();
             printf("Please enter desired delay time in ms\n");
-            scanf("%d", &flash_interval);
+            scanf("%d", &flash_interval);                       //entering a character breaks the code
             printf("You entered correct integer values. The value was %dms\n", flash_interval);
         }
         break;
