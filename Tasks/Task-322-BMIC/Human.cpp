@@ -50,7 +50,7 @@ float updateHeight(Human* h, float hh) {
 }
 
 float updateWeight(Human* h, float ww) {
-    float prev = ww;
+    float prev = h->weight;
 
     //Update property
     h->weight = ww;
