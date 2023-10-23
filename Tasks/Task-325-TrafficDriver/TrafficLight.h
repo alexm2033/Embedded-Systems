@@ -8,10 +8,13 @@ using namespace chrono;
 #define TRAF_YEL1_PIN PC_3
 #define TRAF_RED1_PIN PC_2
 
+typedef enum {WAIT_FOR_PRESS, DEBOUNCE_1, WAIT_FOR_REL, DEBOUNCE_2} Switch_State;
+
 class TrafficLight 
 {
     public:
     typedef enum {STOP, READY, GO, WARNING} LIGHT_STATE;
+    
 
     private:
     DigitalOut redLED;
@@ -30,6 +33,9 @@ class TrafficLight
 
     //Destructor
     ~TrafficLight();
+
+    //reset to red
+    void stop();
 
     //Advance the traffic lights to the next state
     LIGHT_STATE nextState();

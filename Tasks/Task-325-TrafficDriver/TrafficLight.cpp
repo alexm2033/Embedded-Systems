@@ -20,6 +20,11 @@ TrafficLight::~TrafficLight()
     greenLED = 0;
 } 
 
+void TrafficLight::stop() {
+    State = STOP;
+    updateOutput();
+}
+
 // Interrupt Service Routine (ISR)
 void TrafficLight::yellowFlashISR() {
     yellowLED = !yellowLED;
