@@ -10,6 +10,8 @@ using namespace chrono;
 
 typedef enum {WAIT_FOR_PRESS, DEBOUNCE_1, WAIT_FOR_REL, DEBOUNCE_2} Switch_State;
 
+extern long long flashspeed;
+
 class TrafficLight 
 {
     public:

@@ -15,6 +15,8 @@ TimerCompat tmr_Db2;
 Switch_State switch_Blue = WAIT_FOR_PRESS;
 Switch_State switch_2 = WAIT_FOR_PRESS; 
 
+long long flashspeed = 200;
+
 // int main()
 // {
 //     while (true) {
