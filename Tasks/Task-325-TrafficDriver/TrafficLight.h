@@ -2,14 +2,20 @@
 #define __TRAFFICLIGHT__
 
 #include "mbed.h"
+#include <chrono>
 using namespace chrono;
 
 #define TRAF_GRN1_PIN PC_6
 #define TRAF_YEL1_PIN PC_3
 #define TRAF_RED1_PIN PC_2
+#define BTN1_PIN PG_0 
+#define BTN2_PIN PG_1
+#define BTN3_PIN PG_2 // No pull down
+#define BTN4_PIN PG_3 // No pull down
 
 typedef enum {WAIT_FOR_PRESS, DEBOUNCE_1, WAIT_FOR_REL, DEBOUNCE_2} Switch_State;
 
+//extern chrono::milliseconds flashspeed;
 extern long long flashspeed;
 
 class TrafficLight 
@@ -38,6 +44,9 @@ class TrafficLight
 
     //reset to red
     void stop();
+
+    //change flash spped
+    void Set_Flash_Speed();
 
     //Advance the traffic lights to the next state
     LIGHT_STATE nextState();

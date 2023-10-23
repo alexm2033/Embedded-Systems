@@ -1,4 +1,5 @@
 #include "TrafficLight.h"
+#include <iostream>
 
 //Contructor
 TrafficLight::TrafficLight(PinName redPin, PinName yellowPin, PinName greenPin) 
@@ -25,6 +26,10 @@ void TrafficLight::stop() {
     updateOutput();
 }
 
+void TrafficLight::Set_Flash_Speed() {
+    cout<<"input flashspeed in ms"<<endl;
+    cin>>flashspeed;
+}
 // Interrupt Service Routine (ISR)
 void TrafficLight::yellowFlashISR() {
     yellowLED = !yellowLED;
@@ -36,7 +41,7 @@ void TrafficLight::flashYellow(bool flash) {
     if (flash) {
         //Turn on ticker ..... Hmmm, interrupts!
         //t.attach(callback(this, &TrafficLight::yellowFlashISR), 200ms);
-        t.attach(callback(this, &TrafficLight::yellowFlashISR), flashspeed);
+        t.attach(callback(this, &TrafficLight::yellowFlashISR), chrono::milliseconds(flashspeed) );
     }
 }
 
