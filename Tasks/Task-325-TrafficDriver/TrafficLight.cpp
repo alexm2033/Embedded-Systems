@@ -29,7 +29,13 @@ void TrafficLight::stop() {
 void TrafficLight::Set_Flash_Speed() {
     cout<<"input flashspeed in ms"<<endl;
     cin>>flashspeed;
+    updateOutput();
 }
+
+void TrafficLight::Get_Flash_Speed() {
+    cout<<"Current flash interval is "<<flashspeed<<"ms"<<endl;
+}
+
 // Interrupt Service Routine (ISR)
 void TrafficLight::yellowFlashISR() {
     yellowLED = !yellowLED;

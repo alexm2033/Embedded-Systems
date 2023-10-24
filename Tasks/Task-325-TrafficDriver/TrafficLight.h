@@ -48,6 +48,9 @@ class TrafficLight
     //change flash spped
     void Set_Flash_Speed();
 
+    //display flash speed in ms
+    void Get_Flash_Speed();
+
     //Advance the traffic lights to the next state
     LIGHT_STATE nextState();
 
