@@ -1,6 +1,9 @@
 #include "TrafficLight.h"
 #include <iostream>
 
+DigitalInOut grn2LED(TRAF_GRN2_PIN, PinDirection::PIN_OUTPUT, PinMode::OpenDrainNoPull, 1);
+DigitalInOut red2LED(TRAF_RED2_PIN, PinDirection::PIN_OUTPUT, PinMode::OpenDrainNoPull, 1);
+DigitalInOut yel2LED(TRAF_YEL2_PIN, PinDirection::PIN_OUTPUT, PinMode::OpenDrainNoPull, 1);
 //Contructor
 TrafficLight::TrafficLight(PinName redPin, PinName yellowPin, PinName greenPin) 
                                                         : redLED(redPin), yellowLED(yellowPin), greenLED(greenPin)
@@ -36,6 +39,29 @@ void TrafficLight::Get_Flash_Speed() {
     cout<<"Current flash interval is "<<flashspeed<<"ms"<<endl;
 }
 
+// possible responses to switch activation
+void TrafficLight::buttonResponse(int x) {
+switch(x) {
+
+    case 1:
+        s = lights.nextState();
+        break;
+
+    case 2:
+        lights.stop(); 
+        break;
+
+    case 4:
+        lights.Set_Flash_Speed();
+        break;
+
+    case 8:
+        lights.Get_Flash_Speed();
+        break;
+    } 
+                                  
+}
+           
 // Interrupt Service Routine (ISR)
 void TrafficLight::yellowFlashISR() {
     yellowLED = !yellowLED;

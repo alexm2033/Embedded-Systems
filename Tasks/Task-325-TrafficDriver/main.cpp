@@ -15,7 +15,7 @@ TrafficLight::LIGHT_STATE s;
 
 TimerCompat tmr_Db;
 
-Switch_State switch_Blue = WAIT_FOR_PRESS;
+//Switch_State switch_Blue = WAIT_FOR_PRESS;
 Switch_State buttons = WAIT_FOR_PRESS;
 
 //chrono::milliseconds flashspeed = 200ms;
@@ -36,25 +36,7 @@ btn3.mode(PinMode::PullDown);
                 int state_of_switches = switches;
                 buttons = DEBOUNCE_1;
                 tmr_Db.start();
-
-                switch(state_of_switches) {
-
-                case 1:
-                    s = lights.nextState();
-                    break;
-
-                case 2:
-                    lights.stop(); 
-                    break;
-
-                case 4:
-                    lights.Set_Flash_Speed();
-                    break;
-
-                case 8:
-                    lights.Get_Flash_Speed();
-                    break;
-                }                              
+                lights.buttonResponse(state_of_switches);                
             }
             break;
 
