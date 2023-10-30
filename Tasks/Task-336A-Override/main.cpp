@@ -1,5 +1,6 @@
 #include "DoubleNumber.hpp"
 #include "ComplexNumber.hpp"
+#include <type_traits>
 
 int main()
 {
@@ -27,6 +28,10 @@ int main()
     //TODO - write an overloaded + operator
     DoubleNumber sum1 = c0 + c1 + d0 + d1;
     cout << sum1 << endl;
+
+    cout<<"c0 = "<<c0.asString()<<" c1 = "<<c1.asString()<<endl;
+    ComplexNumber sum2 = c0 + c1;
+    cout<<"c0 + c1 = "<<sum2.asString()<<endl;
 
     while (true) {
 
