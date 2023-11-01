@@ -9,7 +9,7 @@ DigitalOut led1(LED1);
 DigitalOut led2(LED2);
 AnalogIn pot(AN_POT_PIN);
 
-#define N 64
+#define N 20
 
 int main()
 {
@@ -21,7 +21,7 @@ int main()
         float    fPot = (float)uPot / 4095.0f;  //Scaled 0.0-1.0      
         
         //Floating point version
-        if (hasIncreasedBy(fPot, 0.1f)) {
+        if (hasIncreasedBy<float>(fPot, 0.1f)) {
             led1 = 1;
         }
         else if (hasDecreasedBy<float>(fPot, 0.1f)) {
