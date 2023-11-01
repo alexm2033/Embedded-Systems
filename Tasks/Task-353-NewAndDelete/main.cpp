@@ -77,7 +77,7 @@ int main()
         //Free up the memory
         cout << "Memory before deallocating" << endl;
         print_memory_info();
-        delete [] buffer;
+        delete[] buffer;
         buffer = nullptr;
         
         //Let's see if all the memory has been returned
@@ -96,6 +96,8 @@ int main()
 
     } //end while
     return 0;
+
+   // while(true) {}
 }
 
 
