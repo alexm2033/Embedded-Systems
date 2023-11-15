@@ -9,7 +9,7 @@ using namespace uop_msb;
 Semaphore sem1;
 Semaphore sem2(10);
 Mutex countLock;
-uint16_t counter = 0;
+uint16_t counter = 5;
 Thread t1;
 Thread t2;
 

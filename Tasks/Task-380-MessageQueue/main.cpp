@@ -1,5 +1,6 @@
 #include "uop_msb.h"
 #include <chrono>
+#include <cstdint>
 #include <cstdlib>
 using namespace uop_msb;
 
@@ -14,6 +15,8 @@ using namespace uop_msb;
 void thread1();
 void thread2();
 void switchISR();
+
+const uint32_t TIMEOUT_MS = 1000;
 
 //Threads
 Thread t1;
@@ -49,6 +52,7 @@ void thread1()
         
         if (success) {
             printf("value: %u\n", (uint32_t)rx);
+
         } else {
             printf("Receive timeout\n");
             yellowLED = 1;
@@ -66,8 +70,12 @@ void thread1()
 int main() {
     post();
 
+    Watchdog &watchdog = Watchdog::get_instance();
+    watchdog.start(TIMEOUT_MS);
+
     //Start message
     printf("Welcome\n");
+    
            
     //Hook up timer interrupt   
     Ticker timer; 
@@ -80,5 +88,11 @@ int main() {
     while (true) {
         ThisThread::sleep_for(500ms);
         greenLED = !greenLED;
+          uint32_t* v = 0;
+    v = v+1;
+    printf("V = %p",v);
+        if(redLED == 0) {
+            Watchdog::get_instance().kick();
+        }
     }
 }
