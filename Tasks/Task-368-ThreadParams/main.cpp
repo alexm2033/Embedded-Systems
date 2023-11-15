@@ -7,6 +7,7 @@ using namespace uop_msb;
 Thread t1;
 Thread t2;
 Thread t3;
+Thread t4;
 
 typedef struct {
     PinName pin;
@@ -42,6 +43,7 @@ int main(void)
     PinName redPin(TRAF_RED1_PIN);
     PinName yellowPin(TRAF_YEL1_PIN);
     t1.start(callback(FlashLED, &redPin));
+    t4.start(callback(FlashLED, &yellowPin));
     
     FlashyParam p1 = {.pin=TRAF_YEL2_PIN, .mode= PinMode::OpenDrainNoPull, .interval=250ms};
     t2.start(callback(FlashLED2, &p1));
