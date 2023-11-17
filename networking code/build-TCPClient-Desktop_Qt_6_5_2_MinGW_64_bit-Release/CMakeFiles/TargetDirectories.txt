@@ -1,0 +1,9 @@
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/TCPClient.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/edit_cache.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/rebuild_cache.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/list_install_components.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/install.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/install/local.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/install/strip.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/TCPClient_autogen_timestamp_deps.dir
+C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/CMakeFiles/TCPClient_autogen.dir

@@ -1,0 +1,9 @@
+# ninja log v5
+2	2511	7121632862549127	TCPServer_autogen/timestamp	f2dacc305288be23
+2	2511	7121632862549127	TCPServer_autogen/mocs_compilation.cpp	f2dacc305288be23
+2	2511	7121632862549127	C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPServer-Desktop_Qt_6_5_2_MinGW_64_bit-Release/TCPServer_autogen/timestamp	f2dacc305288be23
+2	2511	7121632862549127	C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPServer-Desktop_Qt_6_5_2_MinGW_64_bit-Release/TCPServer_autogen/mocs_compilation.cpp	f2dacc305288be23
+2527	7439	7121632917154976	CMakeFiles/TCPServer.dir/main.cpp.obj	ac5727112e9a8837
+2512	7627	7121632919287017	CMakeFiles/TCPServer.dir/TCPServer_autogen/mocs_compilation.cpp.obj	75e431731cbdb926
+2519	8348	7121632926507020	CMakeFiles/TCPServer.dir/mainwindow.cpp.obj	4a02296e87365d84
+8349	8616	7121632929107012	TCPServer.exe	8e1468b20fd2eecf

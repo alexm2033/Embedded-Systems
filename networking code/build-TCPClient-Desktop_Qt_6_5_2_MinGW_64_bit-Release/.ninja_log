@@ -1,0 +1,9 @@
+# ninja log v5
+2	2592	7121632230448564	TCPClient_autogen/timestamp	2052d4e8197e5442
+2	2592	7121632230448564	TCPClient_autogen/mocs_compilation.cpp	2052d4e8197e5442
+2	2592	7121632230448564	C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/TCPClient_autogen/timestamp	2052d4e8197e5442
+2	2592	7121632230448564	C:/Users/noutram/git/Embedded-Systems/Software/Qt/build-TCPClient-Desktop_Qt_6_5_2_MinGW_64_bit-Release/TCPClient_autogen/mocs_compilation.cpp	2052d4e8197e5442
+2607	7651	7121632286346489	CMakeFiles/TCPClient.dir/main.cpp.obj	636110a0d619d3bb
+2593	7661	7121632286446493	CMakeFiles/TCPClient.dir/TCPClient_autogen/mocs_compilation.cpp.obj	a3759bc577739bcf
+2600	8475	7121632294858325	CMakeFiles/TCPClient.dir/mainwindow.cpp.obj	9a252ec007c18bdb
+8476	8813	7121632298108327	TCPClient.exe	5d3c8ce7c38e5088
