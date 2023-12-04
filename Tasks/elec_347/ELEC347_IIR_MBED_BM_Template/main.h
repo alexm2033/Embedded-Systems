@@ -17,3 +17,12 @@ float ynm1 = 0.0;
 float ynm2 = 0.0;
 float ynm3 = 0.0;
 float ynm4 = 0.0;
+
+float buff[2400] = {0};
+
+struct peak {
+    float amp = 0.0;
+    int index = 0;
+};
+
+peak beats[3];
