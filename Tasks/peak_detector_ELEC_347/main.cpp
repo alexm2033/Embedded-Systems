@@ -4,6 +4,11 @@
 #include "BP_4KHz_Fc_35KHz_Fs_5N.h"
 #include "math.h"
 #include <cstdint>
+#include "string.h"
+#include <stdio.h>
+#include <ctype.h>
+#include <iostream>
+
 
  
 int x =0;
@@ -18,7 +23,7 @@ int x =0;
     float threshold = 0.0;
     float sumT = 0;
     float sumA = 0;
-    float heartrate = 0;
+    uint32_t heartrate = 0;
     float amp[5];
     int index[5];
     double val;
@@ -187,7 +192,7 @@ int main()
 
 void adc_tick_isr(){
 
-    val = (double)ain;
+    // val = (double)ain;
     process_Data.flags_set(1);
 
     //process(val);
@@ -197,9 +202,10 @@ void adc_tick_isr(){
  
 
 void process(){
+while(true) {
     ThisThread::flags_wait_any(1);
     ThisThread::flags_clear(1);
-
+    val = (double)ain;
     val = (val - 0.5);
     
     double yn1 = notch_60Hz.compute(val);
@@ -214,8 +220,8 @@ void process(){
 
     float yn4 = bandpass.compute(xn4);
     dac_test_out = yn4+0.2; 
-  //alex
-  buff[j] = (yn4*yn4);        //square value to magnify peaks and remove negative values
+    //alex
+    buff[j] = (yn4*yn4);        //square value to magnify peaks and remove negative values
     //printf("buff %d = %5.3f,\tThreshold = %5.3f\n", j, buff[j], threshold);
     int c = j-1;
     int d = j-2;
@@ -245,11 +251,12 @@ void process(){
             heartrate = ((1/((sumA/5)*(1.0/Fs)))*60)*0.8;                   //calculate heart rate in BPM
             sumA = 0;   
         }
-    } 
-    if(j%1200 == 0){
-            printf("\x1b[%d;100HHeartrate = %3.1f BPM\n", x++, heartrate);          //print heartrate every second
+        } 
+        if(j%1200 == 0){
+                printf("\x1b[%d;100HHeartrate = %d BPM\n", x++, heartrate);          //print heartrate every second
+        }
+        j = (j+1) % buffSize;                   //update buffer index
     }
-    j = (j+1) % buffSize;                   //update buffer index
 
     //alex
 }
