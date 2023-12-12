@@ -20,10 +20,35 @@ using namespace std;
 "<html>" "\r\n"                                                  \
 "  <body style=\"display:flex;text-align:center\">" "\r\n"       \
 "    <div style=\"margin:auto\">" "\r\n"                         \
-"      <h1>POT Value</h1>" "\r\n"                              \
-"      <p>{{0}}</p>" "\r\n"                                 \
-"      <h1>LDR Value</h1>" "\r\n"                              \
-"      <l>{{1}}</l>" "\r\n"                                 \
+"      <h1>ALEX &nbsp&nbsp&nbsp"          \
+"      &&nbsp&nbsp&nbsp"          \
+"      BILLY'S&nbsp&nbsp&nbsp"          \
+"      PROJECT&nbsp&nbsp&nbsp"          \
+"      PAGE</h1>"             \
+"      <h1>&nbsp&nbsp&nbsp</h1>"    \
+"      <h1>&nbsp&nbsp&nbsp</h1>"    \
+"      <h1>{{Time}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{Date}}</h1>" "\r\n"            \
+"      <h1>&nbsp&nbsp&nbsp</h1>"    \
+"      <h1>TEMPERATURE&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPRESSURE"                       \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHUMIDITY"                                      \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLIGHT</h1>" "\r\n"                     \
+"      <p>{{temp}}&nbspdegrees&nbspC"                 \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"                               \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      {{pres}}&nbspmBar"         \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"        \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"      \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      {{hum}}&nbsp%"         \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"       \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"          \
+"      {{light}}</p>" "\r\n"                                 \
 "    </div>" "\r\n"                                              \
 "  </body>" "\r\n"                                               \
 "</html>" "\r\n"
@@ -110,14 +135,14 @@ int main()
         
         //Construct response string (in C++)
         string html = string(HTTP_TEMPLATE);
-        size_t index = html.find("{{0}}");  //Find placeholder {{0}}
+        size_t index = html.find("{{pres}}");  //Find placeholder {{0}}
         if (index) {
-            html.replace(index, 5, buff);   //Replace with pot value string
+            html.replace(index, 8, buff);   //Replace with pot value string
         }
 
-        index = html.find("{{1}}");  //Find placeholder {{0}}
+        index = html.find("{{light}}");  //Find placeholder {{0}}
         if (index) {
-            html.replace(index, 5, buff2);   //Replace with pot value string
+            html.replace(index, 9, buff2);   //Replace with pot value string
         }
        
        
